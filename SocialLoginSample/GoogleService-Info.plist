@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>327995776940-rv39d4728hhinlir92846sg4d025pdb4.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.327995776940-rv39d4728hhinlir92846sg4d025pdb4</string>
+	<key>API_KEY</key>
+	<string>AIzaSyB52kYYYSvFSl5EoNo5VyJzS1EGuG00wRI</string>
+	<key>GCM_SENDER_ID</key>
+	<string>327995776940</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.freadteam.ryo.SocialLoginSample</string>
+	<key>PROJECT_ID</key>
+	<string>socialloginsample-bc3f9</string>
+	<key>STORAGE_BUCKET</key>
+	<string>socialloginsample-bc3f9.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:327995776940:ios:06d7c50690912025</string>
+	<key>DATABASE_URL</key>
+	<string>https://socialloginsample-bc3f9.firebaseio.com</string>
+</dict>
+</plist>

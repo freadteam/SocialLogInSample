@@ -10,7 +10,7 @@
 		2C897A5621AE810B00F8910E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C897A5521AE810B00F8910E /* GoogleService-Info.plist */; };
 		2CC6B5EC21B0EA4500DAD048 /* Logout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CC6B5EB21B0EA4500DAD048 /* Logout.storyboard */; };
 		2CC6B5F121B0EBBF00DAD048 /* LogoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC6B5F021B0EBBF00DAD048 /* LogoutViewController.swift */; };
-		2CC6B5F421B0EFF000DAD048 /* AuthFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC6B5F321B0EFF000DAD048 /* AuthFunction.swift */; };
+		2CC6B5F421B0EFF000DAD048 /* UIViewController+Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC6B5F321B0EFF000DAD048 /* UIViewController+Auth.swift */; };
 		2CC6B5F621B0F47B00DAD048 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC6B5F521B0F47B00DAD048 /* APIKey.swift */; };
 		2CC6B5F821B0F52400DAD048 /* FacebookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC6B5F721B0F52400DAD048 /* FacebookViewController.swift */; };
 		2CD1597F21AE75A8007BF930 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD1597E21AE75A8007BF930 /* AppDelegate.swift */; };
@@ -25,7 +25,7 @@
 		2C897A5521AE810B00F8910E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2CC6B5EB21B0EA4500DAD048 /* Logout.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Logout.storyboard; sourceTree = "<group>"; };
 		2CC6B5F021B0EBBF00DAD048 /* LogoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutViewController.swift; sourceTree = "<group>"; };
-		2CC6B5F321B0EFF000DAD048 /* AuthFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthFunction.swift; sourceTree = "<group>"; };
+		2CC6B5F321B0EFF000DAD048 /* UIViewController+Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Auth.swift"; sourceTree = "<group>"; };
 		2CC6B5F521B0F47B00DAD048 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		2CC6B5F721B0F52400DAD048 /* FacebookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookViewController.swift; sourceTree = "<group>"; };
 		2CD1597B21AE75A8007BF930 /* SocialLoginSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialLoginSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -58,6 +58,14 @@
 				8591D653733EB7D22EB4C942 /* Pods_SocialLoginSample.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2C30681021B25239007A4142 /* Extention */ = {
+			isa = PBXGroup;
+			children = (
+				2CC6B5F321B0EFF000DAD048 /* UIViewController+Auth.swift */,
+			);
+			path = Extention;
 			sourceTree = "<group>";
 		};
 		2CC6B5ED21B0EA9200DAD048 /* TwitterLogin */ = {
@@ -97,9 +105,9 @@
 		2CD1597D21AE75A8007BF930 /* SocialLoginSample */ = {
 			isa = PBXGroup;
 			children = (
+				2C30681021B25239007A4142 /* Extention */,
 				2CD1597E21AE75A8007BF930 /* AppDelegate.swift */,
 				2CC6B5F521B0F47B00DAD048 /* APIKey.swift */,
-				2CC6B5F321B0EFF000DAD048 /* AuthFunction.swift */,
 				2CC6B5F021B0EBBF00DAD048 /* LogoutViewController.swift */,
 				2CC6B5ED21B0EA9200DAD048 /* TwitterLogin */,
 				2CC6B5F221B0EF2500DAD048 /* FacoBook */,
@@ -219,6 +227,9 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SocialLoginSample/Pods-SocialLoginSample-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${PODS_ROOT}/TwitterCore/iOS/TwitterCore.framework",
@@ -227,6 +238,9 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterCore.framework",
@@ -264,7 +278,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CD1598121AE75A8007BF930 /* ViewController.swift in Sources */,
-				2CC6B5F421B0EFF000DAD048 /* AuthFunction.swift in Sources */,
+				2CC6B5F421B0EFF000DAD048 /* UIViewController+Auth.swift in Sources */,
 				2CC6B5F821B0F52400DAD048 /* FacebookViewController.swift in Sources */,
 				2CC6B5F121B0EBBF00DAD048 /* LogoutViewController.swift in Sources */,
 				2CD1597F21AE75A8007BF930 /* AppDelegate.swift in Sources */,

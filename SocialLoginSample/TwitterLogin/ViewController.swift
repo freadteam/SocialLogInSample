@@ -23,6 +23,7 @@
                     let authToken = session?.authToken
                     let authTokenSecret = session?.authTokenSecret
                     let credential = TwitterAuthProvider.credential(withToken: authToken!, secret: authTokenSecret!)
+                    print(authToken, authTokenSecret, credential)
                     Auth.auth().signInAndRetrieveData(with: credential) { (authResult, error) in
                         if let error = error {
                             print("error: \(String(describing: error.localizedDescription))")

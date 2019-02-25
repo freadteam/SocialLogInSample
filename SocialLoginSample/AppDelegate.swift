@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import TwitterKit
+import FBSDKCoreKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,15 +19,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         //Twitter (infp.plistnにキーの追加も忘れずに)
         TWTRTwitter.sharedInstance().start(withConsumerKey: APIKey.withConsumerKey,consumerSecret: APIKey.consumerSecret)
-       
+        //ログイン状態の保持(tiwtter)
+        if TWTRTwitter.sharedInstance().sessionStore.session() != nil {
+            //ログイン中なら
+            self.switchStoryBoard("Logout", "RootLogoutController")
+        } else {
+            //ログアウト中なら
+            self.switchStoryBoard("Main", "RootLoginController")
+        }
+        
+        //facebook
+        
+        
         //firebase
         FirebaseApp.configure()
-        
-        if TWTRTwitter.sharedInstance().sessionStore.session() != nil {
-            self.loginFunction()
-        } else {
-            self.logoutFunction()
-        }
         
         return true
     }
@@ -37,6 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         return false
     }
+    
     
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -60,22 +67,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
-    
-    func loginFunction() {
-        //ログイン中なら
+    func switchStoryBoard(_ name: String, _ withIdentifier: String) {
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        let storyboard = UIStoryboard(name: "Logout", bundle: Bundle.main)
-        let rootViewController = storyboard.instantiateViewController(withIdentifier: "RootLogoutController")
-        self.window?.rootViewController = rootViewController
-        self.window?.backgroundColor = UIColor.white
-        self.window?.makeKeyAndVisible()
-    }
-    
-    func logoutFunction() {
-        //ログインしていないなら
-        self.window = UIWindow(frame: UIScreen.main.bounds)
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        let rootViewController = storyboard.instantiateViewController(withIdentifier: "RootLoginController")
+        let storyboard = UIStoryboard(name: name, bundle: Bundle.main)
+        let rootViewController = storyboard.instantiateViewController(withIdentifier: withIdentifier)
         self.window?.rootViewController = rootViewController
         self.window?.backgroundColor = UIColor.white
         self.window?.makeKeyAndVisible()

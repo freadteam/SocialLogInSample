@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FBSDKCoreKit
+import FBSDKLoginKit
 
 class FacebookViewController: UIViewController {
 
@@ -16,6 +19,7 @@ class FacebookViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+
 
 
 

@@ -10,12 +10,7 @@ target 'SocialLoginSample' do
 pod 'Firebase/Core'
 pod 'Firebase/Auth'
 
-#pod 'FirebaseUI/Auth'
-#pod 'FirebaseUI/Google'
-#pod 'FirebaseUI/Facebook'
-#pod 'FirebaseUI/Twitter'
-#pod 'FirebaseUI/Phone'
-
 pod 'TwitterKit'
+pod 'FBSDKLoginKit'
 
 end
